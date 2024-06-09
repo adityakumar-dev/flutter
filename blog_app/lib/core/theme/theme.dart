@@ -15,12 +15,12 @@ class AppTheme {
     
 
     scaffoldBackgroundColor: AppPallete.backgroundColor,
-    appBarTheme:const AppBarTheme(
-      backgroundColor: AppPallete.backgroundColor
+     appBarTheme: const AppBarTheme(
+      backgroundColor: AppPallete.backgroundColor,
     )
-    , chipTheme: const ChipThemeData(
-      color: WidgetStatePropertyAll(AppPallete.backgroundColor)
-    ),
+    
+    ,
+    
     inputDecorationTheme:  InputDecorationTheme(
       
       contentPadding: const EdgeInsets.all(27),

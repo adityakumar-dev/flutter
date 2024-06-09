@@ -1,3 +1,4 @@
+import 'package:blog_app/features/auth/presentations/pages/signup_page.dart';
 import 'package:blog_app/widgets/auth_Button.dart';
 import 'package:blog_app/widgets/auth_field.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_pallate.dart';
 
 class SignIn extends StatefulWidget {
+  static route ()=>MaterialPageRoute(builder: (context)=> const SignIn());
   const SignIn({super.key});
 
   @override
@@ -18,13 +20,15 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Form(
         child: Scaffold(
+          appBar: AppBar(),
+          resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "SignIn",
+              "Sign In",
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
@@ -45,18 +49,23 @@ class _SignInState extends State<SignIn> {
             const SizedBox(height: 20,),
             const AuthGradientButton(btnText: 'Sign In',),
             const SizedBox(height: 30,),
-              RichText(
-                  text: TextSpan(
-                      text: "Don't Have an account? ",
-                      style: Theme.of(context).textTheme.titleMedium,
-                      children: [
-                    TextSpan(
-                        text: "Sign Up",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(color: AppPallete.gradient2 , fontWeight: FontWeight.bold))
-                  ])),
+              GestureDetector(
+                onTap: (){
+                   Navigator.pushAndRemoveUntil(context, SignUp.route(),(route)=>false);
+                },
+                child: RichText(
+                    text: TextSpan(
+                        text: "Don't Have an account? ",
+                        style: Theme.of(context).textTheme.titleMedium,
+                        children: [
+                      TextSpan(
+                          text: "Sign Up",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(color: AppPallete.gradient2 , fontWeight: FontWeight.bold))
+                    ])),
+              ),
           ],
         ),
       ),
