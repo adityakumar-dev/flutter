@@ -7,7 +7,6 @@ class AppTheme {
   );
   static final ThemeData darkTheme = ThemeData.dark(useMaterial3: true).copyWith(
     brightness: Brightness.dark,
-    
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark)
   ,
   );
