@@ -37,6 +37,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final adaptiveTheme = AdaptiveTheme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -46,10 +48,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-             Text(
+            Text(
               'current Theme : ${AdaptiveTheme.of(context).mode}',
             ),
-            
+            RadioListTile(
+                title: const Text('System'),
+                value: AdaptiveThemeMode.system,
+                groupValue: AdaptiveTheme.of(context).mode,
+                onChanged: (value) => adaptiveTheme.setSystem()),
+            RadioListTile(
+                title: const Text('Light'),
+                value: AdaptiveThemeMode.light,
+                groupValue: AdaptiveTheme.of(context).mode,
+                onChanged: (value) => adaptiveTheme.setLight()),
+            RadioListTile(
+                title: const Text('Dark'),
+                value: AdaptiveThemeMode.dark,
+                groupValue: AdaptiveTheme.of(context).mode,
+                onChanged: (value) => adaptiveTheme.setDark()),
           ],
         ),
       ),
